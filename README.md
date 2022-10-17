@@ -90,3 +90,25 @@ out/
 node_modules/
 next-env.d.ts
 ```
+
+Prettier es una herramienta de formato de código. Ayuda a evitar tener discusiones sobre cómo dar formato al código. También se necesitan un par archivos de configuración den la raíz:
+
+.prettierrc:
+
+```json
+
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "semi": false,
+  "jsxSingleQuote": true,
+  "trailingComma": "none",
+  "arrowParens": "avoid"
+}
+```
+
+Debido a un problema pendiente en Yarn workspaces necesitamos usar Yarn v1.18 en nuestro repositorio lo podemos lograr de siguente manera:
+
+```properties
+yarn policies set--version 1.18.0
+```
