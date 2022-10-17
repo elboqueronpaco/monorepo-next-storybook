@@ -146,3 +146,48 @@ module.exports = {
   }
 }
 ```
+
+Y finalmente nuestro archivos de configuración de TypeScript. Uno en la carpeta raiz y un archivo principal utilizado como base para todo los demás archivos dispersos por el repositorio:
+
+``tsconfig.json config/next.tsconfig.json``
+
+``tsconfig.json``:
+
+```json
+{
+  "extends": "./config/next.tsconfig.json",
+  "include": ["./tests/**/*", "./.storybook/*", "./packages/**/*"],
+  "compilerOptions": {
+    "module": "CommonJS",
+    "isolatedModules": false,
+    "baseUrl": "."
+  }
+}
+```
+
+``config/next.tsconfig.json``:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "strictNullChecks": true,
+    "paths": {
+      "@outsrc/*": ["../packages/shared/*"]
+    }
+  }
+}
+```
+
